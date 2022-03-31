@@ -7,7 +7,10 @@ export const signUpSchema = yup
   .object({
     firstName: yup.string().required('First Name cannot be empty'),
     lastName: yup.string().required('Last Name cannot be empty'),
-    email: yup.string().email().required('Looks like this is not an email'),
+    email: yup
+      .string()
+      .email('Looks like this is not an email')
+      .required('Email cannot be empty'),
     password: yup
       .string()
       .required('Password cannot be empty')
